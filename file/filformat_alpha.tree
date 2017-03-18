@@ -1,0 +1,51 @@
+#########################
+# Statisk tre-beskrivelse
+#########################
+
+# Rootnode
+node: 0, green, 200, 40
+
+# 1 level
+node: 1, yellow,  20,  20
+node: 2,   gray,  75, 100
+node: 3, yellow, 110,  20
+node: 4, yellow, 150,  20
+node: 5,   gray, 190,  80
+node: 6, yellow, 230,  25
+node: 7, yellow, 280,  25
+node: 8,  green, 320,  35
+node: 9, yellow, 340,  20
+
+# 2 level
+node: 1-0, blue, 30, 18
+node: 1-1, gray, 340, 19
+   
+node: 2-0, green,   60, 100 
+node: 2-1, green,   85,  20
+node: 2-2, yellow, 120,  18
+node: 2-3, green , 160,  21
+node: 2-4, yellow, 310,  20
+
+node: 3-0, purple, 130, 18
+
+node: 5-0, gray, 110, 30
+node: 5-1, gray, 160, 30
+node: 5-2, gray, 200, 30
+node: 5-3, gray, 230, 30
+node: 5-4, gray, 260, 30
+
+node: 6-0, blue,   130, 15
+node: 6-1, purple, 190, 15
+node: 6-2, blue,   250, 15
+node: 6-3, blue,   275, 15
+
+node: 7-0, blue, 260, 20
+node: 7-1, gray, 285, 20
+
+node: 8-0, gray, 320, 40
+
+node: 9-0, blue, 340, 20
+
+###########################
+# Rekkefølge på animasjonen
+###########################
