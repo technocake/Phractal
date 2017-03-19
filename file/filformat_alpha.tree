@@ -14,15 +14,15 @@ layer: 0, 1
 
 layer: 1, 1
   base: 0, 9
-    node: 0, yellow,  20,  30
+    node: 0, orange,  20,  30
     node: 1,   gray,  65, 100
-    node: 2, yellow, 110,  30
-    node: 3, yellow, 150,  30
+    node: 2, orange, 110,  30
+    node: 3, orange, 150,  30
     node: 4,   gray, 190,  80
-    node: 5, yellow, 230,  35
-    node: 6, yellow, 280,  35
+    node: 5, orange, 230,  35
+    node: 6, orange, 280,  35
     node: 7,  green, 320,  55
-    node: 8, yellow, 340,  30
+    node: 8, orange, 340,  30
 
 
 ##########################################
@@ -37,9 +37,9 @@ layer: 2, 9
     node: 0, green,   30, 100 
     node: 1, green,   75,  20
     node: 2, black,  119,  40
-    node: 3, yellow, 120,  18
+    node: 3, orange, 120,  18
     node: 4, green , 160,  21
-    node: 5, yellow, 310,  20
+    node: 5, orange, 310,  20
   base: 2, 1
     node: 0, purple, 130, 18
   base: 3, 0
@@ -71,17 +71,17 @@ layer: 3, 21
   base: 0, 0
   base: 1, 0
   base: 2, 11
-    node: 0,  yellow,   15, 25
+    node: 0,  orange,   15, 25
     node: 1,    gray,   25, 15
-    node: 2,  yellow,   45, 25
+    node: 2,  orange,   45, 25
     node: 3,   green,   70, 25
-    node: 4,  yellow,  110, 25
+    node: 4,  orange,  110, 25
     node: 5,    blue,  140, 20
     node: 6,    gray,  190, 20
     node: 7,    gray,  250, 20
-    node: 8,  yellow,  280, 25
-    node: 9,  yellow,  310, 25
-    node: 10, yellow,  350, 25
+    node: 8,  orange,  280, 25
+    node: 9,  orange,  310, 25
+    node: 10, orange,  350, 25
   base: 3, 1
     node: 0, gray, 92, 25
   base: 4, 1
@@ -126,7 +126,7 @@ layer: 4, 21
     node: 0, gray, 35, 25
     node: 1, blue, 55, 25
   base: 3, 1
-    node: 0, yellow, 70, 30
+    node: 0, orange, 70, 30
   base: 4, 2
     node: 0, gray, 88, 25
     node: 1, blue, 115, 25
