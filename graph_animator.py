@@ -11,6 +11,7 @@
 
 
 import file_parser as parser
+from turtle import Turtle, Screen
   
 filepath = "file/fileformat.graph" # File to load the graph from
 
@@ -41,9 +42,55 @@ def display_graph_data(graph):
       print(node)
 
 
+def turtle_factory(node):
+
+  scale = .5
+
+  tut = Turtle()
+
+  tut.hideturtle()
+  tut.penup()
+  tut.shapesize(node["size"]*scale)
+  tut.color(node["color"])
+  tut.setheading(node["theta"])
+  tut.forward(node["radius"])
+  tut.shape("circle")
+  tut.speed(0)
+  tut.pendown()
+  tut.showturtle()
+
+  node["turtle"] = tut
+
+  return tut
+
+
+def turtle_clonery(tut, color):
+   newtut = tut.clone()
+   newtut.color(color)
+   newtut.seth(0)
+   return newtut
+
+
+def draw_graph(graph):
+
+  #
+  # 0. Set up the founding turtles
+  #
+  screen = Screen()
+  root_nodes = graph[0]
+  root_turtles = [ turtle_factory(root_nodes[i]) for i in range(len(root_nodes)) ]    
+
+  for layer in graph[1:]:
+    for node in layer:
+      continue
+      #node["turtle"] = turtle_clonery(base_turtles[node["base_layer"]])
+
+  screen.mainloop()
+
 if __name__ == "__main__":
   graph = read_file_graph()
   display_graph_data(graph)
+  draw_graph(graph)
 
 
 
