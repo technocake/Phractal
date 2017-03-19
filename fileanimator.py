@@ -24,8 +24,7 @@ def serialize_base(line):
   line = serialize_line(line)
   return dict({
       "base_id": int(line[0]),
-      "node_id": int(line[1]),
-      "number_of_nodes": int(line[2]),
+      "number_of_nodes": int(line[1]),
   })
 
 
@@ -45,32 +44,25 @@ def read_file_tree():
 
     current_layer = -1
 
-
     for line in treefile.readlines():
         
       # Special case for finding the root node
       if line.find("layer:") > -1:
         current_layer += 1
-        current_base = -1
 
         layer = serialize_layer(line)
         tree.append(dict({
           "layer": layer, 
-          "bases": [], 
+          "nodes": [], 
         }))
 
       elif line.find("base:") > -1:
-        current_base += 1
-
         base = serialize_base(line)
-        tree[current_layer]["bases"].append(dict({
-          "base" : base, 
-          "nodes" : [],
-        }))
+        tree[current_layer]["nodes"].append(base)
 
       elif line.find("node:") > -1:
         node = serialize_node(line)
-        tree[current_layer]["bases"][current_base]["nodes"].append(node)
+        tree[current_layer]["nodes"].append(node)
         #print(node)
 
   return tree
@@ -80,40 +72,85 @@ def display_tree_data(tree):
 
   for layer in tree:
     print("\n", layer["layer"])
-    for base in layer["bases"]:
-      print(base["base"])
-      for node in base["nodes"]:
-        print(node)
+    for node in layer["nodes"]:
+      print(node)
 
 
 def turtle_factory(color):
   tut = Turtle()
   tut.shape("circle")
-  tut.shapesize(1)
+  tut.shapesize(.5)
   tut.color(color)
+  tut.speed(9)
   return tut
 
 def turtle_clonery(tut, color):
    newtut = tut.clone()
    newtut.color(color)
+   newtut.seth(0)
    return newtut
+
+
+def turtles_spread(turtles, nodes):
+  opened = False
+  radis = []
+
+  # 2. Step - turn alll branches facing the right direction
+  i=0
+  for node in nodes:
+    if "base_id" in node:
+      continue
+    else:
+      radis.append([0, int(node["radius"])])
+      turtles[i].left(node["theta"])
+      i+=1
+
+  # 3. step run nodes forward
+  while not opened:
+    opened = True
+
+    i = 0
+    for rad in radis:
+      if rad[0] <= rad[1]:
+        rad[0] += 1
+        turtles[i].forward(1)
+        opened = False
+
+      i += 1
+
 
 
 def turtle_dance(tree):
   screen = Screen()
 
     # Root turtle
-  tut1= turtle_factory(tree[0]["bases"][0]["nodes"][0]["color"])
+  tutroot=turtle_factory(tree[0]["nodes"][1]["color"])
 
-  tut1.left(int(tree[0]["bases"][0]["nodes"][0]["theta"]))
-  tut1.forward(int(tree[0]["bases"][0]["nodes"][0]["radius"]))
+  tutroot.left(tree[0]["nodes"][1]["theta"])
+  tutroot.penup()
+  tutroot.forward(tree[0]["nodes"][1]["radius"])
+  tutroot.pendown()
 
+  bot_layer = [tutroot]
+  top_layer = []
 
-    # 1 layer
-  layer1_tuts = [turtle_clonery(tut1, tree[1]["bases"][0]["nodes"][i]["color"]) for i in range(tree[1]["bases"][0]["base"]["number_of_nodes"])]
-  
-  for i in range(9):
-    pass
+  for layer in tree[1:]:
+    # 1. step - create new nodes
+    base_num = -1
+    nodes = layer["nodes"]
+    for node in nodes:
+      if "base_id" in node:
+        base_num += 1
+        print("Base_num:", base_num)
+        pass
+      else:
+        top_layer.append(turtle_clonery(bot_layer[base_num], node["color"]))
+
+    turtles_spread(top_layer, nodes)
+
+    # Swap layers
+    bot_layer = top_layer
+    top_layer = []
 
   screen.mainloop()
 
