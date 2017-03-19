@@ -65,7 +65,13 @@ def serialize_graph_node(line):
     "color"      :     list_of_values[6],
   })
 
-
+#
+# @function reads a file with the formate "fileformat.graph"
+#            Puts the values in a datastructure which is a list of layers
+#            containing a list of nodes. Each node is stored as a dictionary.
+#           [[dict,dict,dict],
+#            [dict,dict,dict],[dict,dict], ...]
+#
 def read_file_graph():
   graph=[]
 
