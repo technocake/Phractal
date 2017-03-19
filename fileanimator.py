@@ -129,9 +129,7 @@ def turtles_dance(tree):
     # 2. Step - Make all turtles face the right direction
     #
     i=0
-
     radius = []
-    node_count = len(nodes)
 
     for node in nodes:
       if "base_id" in node:
@@ -145,13 +143,14 @@ def turtles_dance(tree):
     # 3. Step by step run cloned turtles forward untill they hit
     #     their max radius from the base.
     #
-    forward_count = [ 0 for i in range(node_count) ]
+    clone_count = len(radius)
+    forward_count = [ 0 for i in range(clone_count) ]
     opened = False
 
     while not opened:
       opened = True
 
-      for i in range(len(radius)):
+      for i in range(clone_count):
         if forward_count[i] <= radius[i]:
           forward_count[i] += 1
 
