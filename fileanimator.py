@@ -46,7 +46,6 @@ def read_file_tree():
 
     for line in treefile.readlines():
         
-      # Special case for finding the root node
       if line.find("layer:") > -1:
         current_layer += 1
 
@@ -63,7 +62,6 @@ def read_file_tree():
       elif line.find("node:") > -1:
         node = serialize_node(line)
         tree[current_layer]["nodes"].append(node)
-        #print(node)
 
   return tree
 
@@ -95,7 +93,7 @@ def turtles_spread(turtles, nodes):
   opened = False
   radis = []
 
-  # 2. Step - turn alll branches facing the right direction
+  # 2. Step - Make all branches face the right direction
   i=0
   for node in nodes:
     if "base_id" in node:
@@ -105,7 +103,7 @@ def turtles_spread(turtles, nodes):
       turtles[i].left(node["theta"])
       i+=1
 
-  # 3. step run nodes forward
+  # 3. Step run nodes forward
   while not opened:
     opened = True
 
@@ -135,7 +133,7 @@ def turtle_dance(tree):
   top_layer = []
 
   for layer in tree[1:]:
-    # 1. step - create new nodes
+    # 1. step - create new turtles
     base_num = -1
     nodes = layer["nodes"]
     for node in nodes:
@@ -148,8 +146,7 @@ def turtle_dance(tree):
 
     turtles_spread(top_layer, nodes)
 
-    # Swap layers
-    bot_layer = top_layer
+    bot_layer = top_layer # Push back top_layer
     top_layer = []
 
   screen.mainloop()
@@ -159,6 +156,4 @@ if __name__ == "__main__":
   tree = read_file_tree()
   display_tree_data(tree)
   turtle_dance(tree)
-
-  
 
