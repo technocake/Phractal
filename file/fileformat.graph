@@ -5,7 +5,7 @@
 # @created 19.03.17
 # @file    fileformat.graph
 # @brief   Static description of a graph structure
-# 
+#         <tag><id><base_layer><base_node><theta><radius><size><color>
 ##################################################
 
 layer: 1
@@ -15,7 +15,7 @@ layer: 1
   node: 3, 0, 0, 270, 100, 1, orange
 
 layer: 2
-  node: 0, 0, 0,  45, 200, 1, blue
+  node: 0, 0, 0,  45, 200, 1, orange
   node: 1, 1, 1,  60, 100, 1, blue
   node: 2, 1, 1, 120, 100, 1, blue
   node: 3, 1, 3, 280, 100, 1, blue
