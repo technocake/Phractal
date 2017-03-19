@@ -42,6 +42,17 @@ def display_graph_data(graph):
       print(node)
 
 
+def turtle_god():
+  tut = Turtle()
+
+  tut.hideturtle()
+  tut.penup()
+  tut.color("gold")
+  tut.shape("circle")
+  tut.speed(0)
+
+  return tut
+
 def turtle_factory(node):
 
   tut = Turtle()
@@ -79,7 +90,7 @@ def draw_graph(graph):
   root_nodes = graph[0]
   root_turtles = [ turtle_factory(root_nodes[i]) for i in range(len(root_nodes)) ]    
 
-  all_turtles = ["GOD-node"]
+  all_turtles = [[turtle_god()]]
   all_turtles.append(root_turtles)
 
   #
@@ -90,17 +101,9 @@ def draw_graph(graph):
     cloned_turtles = []
     for node in layer:
 
-      if node["base_layer"] == 0 and node["base_node"] == 0:  # Pointing to the god node
-        cloned_turtles.append(turtle_factory(node))
-
-      elif node["base_layer"] == 0 and node["base_node"] != 0:
-          print("This should never happen... There is only one GOD-node!!!")
-          exit(0)
-
-      else:
-        bl = node["base_layer"]
-        bn = node["base_node"]
-        cloned_turtles.append(turtle_clonery(all_turtles[bl][bn], node))
+      bl = node["base_layer"]
+      bn = node["base_node"]
+      cloned_turtles.append( turtle_clonery(all_turtles[bl][bn], node) )
 
     all_turtles.append(cloned_turtles)
 
@@ -114,16 +117,18 @@ def draw_graph(graph):
 
     while not opened:
       opened = True
-
       for i in range(clone_count):
-
-        if layer[i]["base_layer"] == 0 and layer[i]["base_node"] == 0:
-          pass
-        elif forward_count[i] <= layer[i]["radius"]:
+        if forward_count[i] <= layer[i]["radius"]:
           forward_count[i] += 1
-
-          cloned_turtles[i].forward(1)
           opened = False
+          cloned_turtles[i].forward(1)
+      
+    #
+    # 3. Reveal hidden turtles
+    #
+    for i in range(clone_count):
+      cloned_turtles[i].showturtle()
+      cloned_turtles[i].pendown()
 
   screen.mainloop()
 
