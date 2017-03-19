@@ -23,7 +23,8 @@ def serialize_base(line):
   line = serialize_line(line)
   return dict({
       "base_id": line[0],
-      "number_of_nodes": line[1],
+      "node_id": line[1],
+      "number_of_nodes": line[2],
   })
 
 
