@@ -7,33 +7,15 @@
 # @created 19.03.17
 # @file    graph_editor.py
 # @brief   Will have the purpose of editing graphs, and saving
-#           them to file in the fileformat.graph
+#           them to file in the fileformat.graph.
 
 
 import file_parser as parser
 from turtle import Turtle, Screen
   
-filepath = "file/fileformat.graph" # File to load the graph from
+
 scale = 0.5
 
-def read_file_graph():
-  graph=[]
-
-  with open(filepath, "r") as graphfile:
-
-    current_layer = -1
-
-    for line in graphfile.readlines():
-        
-      if line.find("layer:") > -1:
-        current_layer += 1
-        graph.append([])
-
-      elif line.find("node:") > -1:
-        node = parser.serialize_graph_node(line)
-        graph[current_layer].append(node)
-
-  return graph
 
 def display_graph_data(graph):
 
@@ -112,7 +94,7 @@ def draw_graph(graph):
   screen.mainloop()
 
 if __name__ == "__main__":
-  graph = read_file_graph()
+  graph = parser.read_file_graph()
   display_graph_data(graph)
   draw_graph(graph)
 

@@ -12,6 +12,7 @@
 #             *.tree
 #             *.graph
 
+filepath = "file/fileformat.graph" # File to load the graph from
 
 def serialize_line(line):
   line = line.split(":")[1]      \
@@ -63,3 +64,23 @@ def serialize_graph_node(line):
     "size"       : int(list_of_values[5]),
     "color"      :     list_of_values[6],
   })
+
+
+def read_file_graph():
+  graph=[]
+
+  with open(filepath, "r") as graphfile:
+
+    current_layer = -1
+
+    for line in graphfile.readlines():
+        
+      if line.find("layer:") > -1:
+        current_layer += 1
+        graph.append([])
+
+      elif line.find("node:") > -1:
+        node = serialize_graph_node(line)
+        graph[current_layer].append(node)
+
+  return graph
