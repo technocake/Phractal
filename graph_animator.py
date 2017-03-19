@@ -14,7 +14,7 @@ import file_parser as parser
 from turtle import Turtle, Screen
   
 filepath = "file/fileformat.graph" # File to load the graph from
-
+scale = 0.5
 
 def read_file_graph():
   graph=[]
@@ -44,8 +44,6 @@ def display_graph_data(graph):
 
 def turtle_factory(node):
 
-  scale = .5
-
   tut = Turtle()
 
   tut.hideturtle()
@@ -64,11 +62,15 @@ def turtle_factory(node):
   return tut
 
 
-def turtle_clonery(tut, color):
-   newtut = tut.clone()
-   newtut.color(color)
-   newtut.seth(0)
-   return newtut
+def turtle_clonery(tut, node):
+
+  tut_clone = tut.clone()
+  tut_clone.shapesize(node["size"]*scale)
+  tut_clone.color(node["color"])
+  tut_clone.setheading(node["theta"])
+
+  node["turtle"] = tut_clone
+  return tut_clone
 
 
 def draw_graph(graph):
@@ -80,10 +82,51 @@ def draw_graph(graph):
   root_nodes = graph[0]
   root_turtles = [ turtle_factory(root_nodes[i]) for i in range(len(root_nodes)) ]    
 
+  all_turtles = ["GOD-node"]
+  all_turtles.append(root_turtles)
+
+  #
+  # 1. Spawn new layers of turtles on top of the original one
+  #
+
   for layer in graph[1:]:
+    cloned_turtles = []
     for node in layer:
-      continue
-      #node["turtle"] = turtle_clonery(base_turtles[node["base_layer"]])
+
+      if node["base_layer"] == 0 and node["base_node"] == 0:  # Pointing to the god node
+        cloned_turtles.append(turtle_factory(node))
+
+      elif node["base_layer"] == 0 and node["base_node"] != 0:
+          print("This should never happen... There is only one GOD-node!!!")
+          exit(0)
+
+      else:
+        bl = node["base_layer"]
+        bn = node["base_node"]
+        cloned_turtles.append(turtle_clonery(all_turtles[bl][bn], node))
+
+    all_turtles.append(cloned_turtles)
+
+    #
+    # 2. Step by step run cloned turtles forward untill they hit
+    #     their max radius from the base.
+    #
+    clone_count = len(cloned_turtles)
+    forward_count = [ 0 for i in range(clone_count) ]
+    opened = False
+
+    while not opened:
+      opened = True
+
+      for i in range(clone_count):
+
+        if layer[i]["base_layer"] == 0 and layer[i]["base_node"] == 0:
+          pass
+        elif forward_count[i] <= layer[i]["radius"]:
+          forward_count[i] += 1
+
+          cloned_turtles[i].forward(1)
+          opened = False
 
   screen.mainloop()
 
