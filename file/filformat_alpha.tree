@@ -173,3 +173,54 @@ layer: 4, 21
     node: 2, gray, 340, 25
   base: 21, 1
     node: 3, gray, 345, 25
+
+
+##########################################
+## -------------- LAYER 5 ------------- ##
+##########################################
+
+layer: 5, 31
+  base: 0, 1
+    node: 0, gray, 15, 15
+  base: 1, 0
+  base: 2, 0
+  base: 3, 1
+    node: 0, blue, 70, 25
+  base: 4, 0
+  base: 5, 0
+  base: 6, 0
+  base: 7, 1
+    node: 0,  gray,  300, 25
+  base: 8, 1
+    node: 0,  gray,  330, 25
+  base: 9, 0
+  base: 10, 0
+  base: 11, 0
+  base: 12, 0
+  base: 13, 0
+  base: 14, 0
+  base: 15, 0
+  base: 16, 0
+  base: 17, 0
+  base: 18, 0
+  base: 19, 1
+    node: 1, purple, 120, 25
+  base: 20, 1
+    node: 0, purple, 157, 25
+  base: 21, 0
+  base: 22, 0
+  base: 23, 1
+    node: 1, purple, 205, 25 
+  base: 24, 1
+    node: 0, blue, 230, 25
+  base: 25, 0
+  base: 26, 1
+    node: 0, purple, 265, 25
+  base: 27, 0
+  base: 28, 1
+    node: 0, blue, 258, 25
+  base: 29, 1
+    node: 1, blue, 295, 25
+  base: 30, 0
+  base: 31, 1
+    node: 3, blue, 340, 25
