@@ -212,7 +212,7 @@ layer: 5, 31
   base: 23, 1
     node: 1, purple, 205, 25 
   base: 24, 1
-    node: 0, blue, 230, 25
+    node: 0, purple, 230, 25
   base: 25, 0
   base: 26, 1
     node: 0, purple, 265, 25
