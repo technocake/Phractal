@@ -7,6 +7,11 @@ layer: 0, 1
   base: 0, 1
     node: 0, green, 200, 40
 
+
+##########################################
+## -------------- LAYER 1 ------------- ##
+##########################################
+
 layer: 1, 1
   base: 0, 9
     node: 0, yellow,  20,  30
@@ -19,9 +24,14 @@ layer: 1, 1
     node: 7,  green, 320,  55
     node: 8, yellow, 340,  30
 
+
+##########################################
+## -------------- LAYER 2 ------------- ##
+##########################################
+
 layer: 2, 9
   base: 0, 2
-    node: 0, blue, 30, 18
+    node: 0, blue,  30, 18
     node: 1, gray, 340, 19
   base: 1, 5
     node: 0, green,   30, 100 
@@ -51,6 +61,11 @@ layer: 2, 9
     node: 0, gray, 320, 40
   base: 8, 1
     node: 0, blue, 340, 20
+
+
+##########################################
+## -------------- LAYER 3 ------------- ##
+##########################################
 
 layer: 3, 21
   base: 0, 0
@@ -97,3 +112,64 @@ layer: 3, 21
     node: 1, gray, 300, 35
     node: 2, gray, 350, 30
   base: 21, 0
+
+
+##########################################
+## -------------- LAYER 4 ------------- ##
+##########################################
+
+layer: 4, 21
+  base: 0, 1
+    node: 0, blue, 15, 20
+  base: 1, 0
+  base: 2, 2
+    node: 0, gray, 35, 25
+    node: 1, blue, 55, 25
+  base: 3, 1
+    node: 0, yellow, 70, 30
+  base: 4, 2
+    node: 0, gray, 88, 25
+    node: 1, blue, 115, 25
+  base: 5, 1
+    node: 0, purple, 135, 22
+  base: 6, 0
+  base: 7, 0
+  base: 8, 1
+    node: 0,  blue,  290, 30
+  base: 9, 1
+    node: 0,  blue,  320, 30
+  base: 10, 2
+    node: 0, blue, 330, 25
+    node: 1, gray, 10, 20
+  base: 11,0
+  base: 12, 6
+    node: 0, gray,  60, 25
+    node: 1, gray,  96, 25
+    node: 2, gray, 132, 25
+    node: 3, gray, 168, 25
+    node: 4, gray, 204, 25
+    node: 5, gray, 240, 25  
+  base: 13, 1
+    node: 0, purple, 165, 24
+  base: 14, 2
+    node: 0, gray, 90, 25
+    node: 1, blue, 125, 30 
+  base: 15, 2
+    node: 0, blue, 155, 25
+    node: 1, gray, 190, 25 
+  base: 16, 2
+    node: 0, gray, 170, 25
+    node: 1, blue, 210, 30 
+  base: 17, 2
+    node: 0, blue, 225, 30
+    node: 1, gray, 260, 25 
+  base: 18, 2
+    node: 0, blue, 260, 30
+    node: 1, gray, 300, 25 
+  base: 19, 1
+    node: 0, gray, 254, 30
+  base: 20, 2
+    node: 1, gray, 290, 30
+    node: 2, gray, 340, 25
+  base: 21, 1
+    node: 3, gray, 345, 25
