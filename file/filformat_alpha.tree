@@ -3,7 +3,9 @@
 #########################
 
 # Rootnode
-root: 0, green, 200, 40
+layer: 0
+  base: -1, 1
+    node: 0, green, 200, 40
 
 layer: 1
   base: 0, 9
@@ -22,7 +24,7 @@ layer: 2
     node: 0, blue, 30, 18
     node: 1, gray, 340, 19
 
-  base: 1, 2
+  base: 1, 5
     node: 0, green,   60, 100 
     node: 1, green,   85,  20
     node: 2, yellow, 120,  18
@@ -55,6 +57,7 @@ layer: 2
   base: 8, 1
     node: 0, blue, 340, 20
 
-###########################
-# Rekkefølge på animasjonen
-###########################
+
+############################
+# Rekkefølge på animasjonen?
+############################
