@@ -23,38 +23,65 @@ layer: 2, 9
   base: 0, 2
     node: 0, blue, 30, 18
     node: 1, gray, 340, 19
-
   base: 1, 5
     node: 0, green,   30, 100 
     node: 1, green,   75,  20
     node: 2, yellow, 120,  18
     node: 3, green , 160,  21
     node: 4, yellow, 310,  20
-
   base: 2, 1
     node: 0, purple, 130, 18
-
   base: 3, 0
-
   base: 4, 5
     node: 0, gray, 110, 30
     node: 1, gray, 160, 30
     node: 2, gray, 200, 30
     node: 3, gray, 230, 30
     node: 4, gray, 260, 30
-
   base: 5, 4
     node: 0, blue,   130, 15
     node: 1, purple, 190, 15
     node: 2, blue,   250, 15
     node: 3, blue,   275, 15
-
   base: 6, 2
     node: 0, blue, 260, 20
     node: 1, gray, 285, 20
-
   base: 7, 1
     node: 0, gray, 320, 40
-  
   base: 8, 1
     node: 0, blue, 340, 20
+
+layer: 3, 21
+  base: 0, 0
+  base: 1, 0
+  base: 2, 11
+    node: 0,  yellow,   15, 25
+    node: 1,    gray,   25, 15
+    node: 2,  yellow,   45, 25
+    node: 3,   green,   70, 25
+    node: 4,  yellow,  110, 25
+    node: 5,    blue,  140, 20
+    node: 6,    gray,  190, 20
+    node: 7,    gray,  250, 20
+    node: 8,  yellow,  280, 25
+    node: 9,  yellow,  310, 25
+    node: 10, yellow,  350, 25
+
+  base: 3,   20
+  base: 4,   18
+  base: 5,   21
+  base: 6,   20
+  base: 7,  18
+  base: 8,  30
+  base: 9,  30
+  base: 10, 30
+  base: 11, 30
+  base: 12, 30
+  base: 13, 15
+  base: 14, 15
+  base: 15, 15
+  base: 16, 15
+  base: 17, 20
+  base: 18, 20
+  base: 19, 40
+  base: 20, 20
