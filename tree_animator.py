@@ -1,6 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# 
+# @author  Jonas Solsvik
+# @email   jonasjso@stud.ntnu.no
+# @created 18.03.17
+# @file    tree_animator.py
+# @brief   Takes filformat.tree kind of files as input, and draws an
+#           a growing tree structure, layer by layer.
+# 
+
+
 from turtle import Turtle, Screen
 
 
@@ -40,7 +50,7 @@ def serialize_node(line):
 def read_file_tree():
   tree=[]
 
-  with open("file/filformat_alpha.tree", "r") as treefile:
+  with open("file/fileformat.tree", "r") as treefile:
 
     current_layer = -1
 
