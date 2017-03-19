@@ -53,8 +53,8 @@ def serialize_node(line):
 #               <tag><id><base_layer><base_node><theta><radius><size><color>
 #
 def serialize_graph_node(line):
-  list_of_values = serialize_layer(line)
-  return {
+  list_of_values = serialize_line(line)
+  return dict({
     "id"         : int(list_of_values[0]),
     "base_layer" : int(list_of_values[1]),
     "base_node"  : int(list_of_values[2]),
@@ -62,4 +62,4 @@ def serialize_graph_node(line):
     "radius"     : int(list_of_values[4]),
     "size"       : int(list_of_values[5]),
     "color"      :     list_of_values[6],
-  }
+  })

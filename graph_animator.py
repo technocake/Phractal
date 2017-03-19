@@ -15,22 +15,35 @@ import file_parser as parser
 filepath = "file/fileformat.graph" # File to load the graph from
 
 
-def read_file_tree():
+def read_file_graph():
   graph=[]
 
-  with open(filepath, "r") as treefile:
+  with open(filepath, "r") as graphfile:
 
     current_layer = -1
 
-    for line in treefile.readlines():
+    for line in graphfile.readlines():
         
       if line.find("layer:") > -1:
         current_layer += 1
+        graph.append([])
 
       elif line.find("node:") > -1:
-        node = serialize_graph_node(line)
+        node = parser.serialize_graph_node(line)
         graph[current_layer].append(node)
 
-  return tree
+  return graph
+
+def display_graph_data(graph):
+
+  for layer in graph:
+    for node in layer:
+      print(node)
+
+
+if __name__ == "__main__":
+  graph = read_file_graph()
+  display_graph_data(graph)
+
 
 
