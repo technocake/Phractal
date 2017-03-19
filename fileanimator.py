@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from turtle import Turtle, Screen
 
 
 def serialize_line(line):
@@ -14,17 +15,17 @@ def serialize_line(line):
 def serialize_layer(line):
   line = serialize_line(line)
   return dict({
-      "layer_id": line[0],
-      "number_of_bases": line[1],
+      "layer_id": int(line[0]),
+      "number_of_bases": int(line[1]),
   })
 
 
 def serialize_base(line):
   line = serialize_line(line)
   return dict({
-      "base_id": line[0],
-      "node_id": line[1],
-      "number_of_nodes": line[2],
+      "base_id": int(line[0]),
+      "node_id": int(line[1]),
+      "number_of_nodes": int(line[2]),
   })
 
 
@@ -32,8 +33,8 @@ def serialize_node(line):
   line = serialize_line(line)
   return dict({ 
       "color":  line[1],  
-      "theta":  line[2],
-      "radius": line[3],   
+      "theta":  int(line[2]),
+      "radius": int(line[3]),   
   })
 
 
@@ -85,7 +86,42 @@ def display_tree_data(tree):
         print(node)
 
 
+def turtle_factory(color):
+  tut = Turtle()
+  tut.shape("circle")
+  tut.shapesize(1)
+  tut.color(color)
+  return tut
+
+def turtle_clonery(tut, color):
+   newtut = tut.clone()
+   newtut.color(color)
+   return newtut
+
+
+def turtle_dance(tree):
+  screen = Screen()
+
+    # Root turtle
+  tut1= turtle_factory(tree[0]["bases"][0]["nodes"][0]["color"])
+
+  tut1.left(int(tree[0]["bases"][0]["nodes"][0]["theta"]))
+  tut1.forward(int(tree[0]["bases"][0]["nodes"][0]["radius"]))
+
+
+    # 1 layer
+  layer1_tuts = [turtle_clonery(tut1, tree[1]["bases"][0]["nodes"][i]["color"]) for i in range(tree[1]["bases"][0]["base"]["number_of_nodes"])]
+  
+  for i in range(9):
+    pass
+
+  screen.mainloop()
+
+
 if __name__ == "__main__":
   tree = read_file_tree()
   display_tree_data(tree)
+  turtle_dance(tree)
+
+  
 
