@@ -3,11 +3,11 @@
 #########################
 
 # Rootnode
-layer: 0
+layer: 0, 1
   base: -1, 1
     node: 0, green, 200, 40
 
-layer: 1
+layer: 1, 1
   base: 0, 9
     node: 0, yellow,  20,  20
     node: 1,   gray,  75, 100
@@ -19,7 +19,7 @@ layer: 1
     node: 7,  green, 320,  35
     node: 8, yellow, 340,  20
 
-layer: 2
+layer: 2, 8
   base: 0, 2
     node: 0, blue, 30, 18
     node: 1, gray, 340, 19
