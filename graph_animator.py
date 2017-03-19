@@ -57,8 +57,6 @@ def turtle_factory(node):
   tut.pendown()
   tut.showturtle()
 
-  node["turtle"] = tut
-
   return tut
 
 
@@ -69,7 +67,6 @@ def turtle_clonery(tut, node):
   tut_clone.color(node["color"])
   tut_clone.setheading(node["theta"])
 
-  node["turtle"] = tut_clone
   return tut_clone
 
 
